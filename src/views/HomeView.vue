@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <Header />
-    <div class="column">
+    <Header :isVisible="true" />
+    <div class="content">
       <newsBlock />
-      <descAuthBlock/>
+      <descAuthBlock />
       <carouselBlock />
       <footerBlock />
     </div>
@@ -12,10 +12,10 @@
 
 <script>
 import Header from "../components/Main/headerBlock.vue";
-import descAuthBlock from "../components/Main/descAuthBlock.vue";
-import newsBlock from "../components/Main/newsBlock.vue";
-import footerBlock from "../components/Main/footerBlock.vue";
-import carouselBlock from "../components/Main/carouselBlock.vue";
+// import descAuthBlock from "../components/Main/descAuthBlock.vue";
+// import newsBlock from "../components/Main/newsBlock.vue";
+// import footerBlock from "../components/Main/footerBlock.vue";
+// import carouselBlock from "../components/Main/carouselBlock.vue";
 
 export default {
   name: "HomeView",
@@ -26,32 +26,32 @@ export default {
   },
   components: {
     Header,
-    descAuthBlock,
-    newsBlock,
-    footerBlock,
-    carouselBlock
-  }
+    // descAuthBlock,
+    // newsBlock,
+    // footerBlock,
+    // carouselBlock,
+  },
 };
 </script>
 
-<style>
+<style lang="less" scoped>
+@import "./src/assets/less/var";
+@import "./src/assets/less/mixin";
 
-/* .btn-start{
-  background: #DB6F15;
-  width: 180px;
-  height: 45px;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
+.home {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.btn-start > a{
-  font-family: 'ComfortaaLight';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 18px;
-  -webkit-text-fill-color: #fff!important;
-  border: none!important;
-} */
+.content {
+  .column(center);
+    
+  & > div {
+    .row();
+    .block();
+    .main();
+  }
+  
+}
 </style>

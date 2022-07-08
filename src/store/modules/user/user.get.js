@@ -3,7 +3,7 @@ import axios from "../../../app/config/httpClient.js"
 export default({
     actions:{
         userDataGet(ctx, data){
-            // console.log(data);
+            console.log(data);
             axios.get('user.get', {
                 params:{
                     userID: data.userID,

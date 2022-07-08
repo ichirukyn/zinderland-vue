@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+// import HomeView from '../views/HomeView.vue'
 import GameView from '../views/GameView.vue'
 import RoomView from '../views/RoomView.vue'
 import NewsView from '../views/NewsView.vue'
@@ -8,6 +8,7 @@ import store from '../store'
 
 const routes = [
   {
+    meta: {layout: 'home'},
     path: '/',
     name: 'Home',
     component: HomeView
@@ -15,26 +16,24 @@ const routes = [
   {
     path: '/game',
     name: 'Game',
+    meta: {requiresAuth: true},
     component: GameView,
-    meta: {requiresAuth: true}
   },
   {
     path: '/room',
     name: 'Rooms',
+    meta: {requiresAuth: true},
     component: RoomView,
-    meta: {requiresAuth: true}
   },
   {
     path: '/news',
     name: 'News',
     component: NewsView,
-    // meta: {requiresAuth: true}
   },
   {
     path: '/forum',
     name: 'Forum',
     component: ForumView,
-    // meta: {requiresAuth: true}
   }
 ]
 

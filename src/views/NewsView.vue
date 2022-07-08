@@ -1,7 +1,9 @@
 <template>
-    <Header />
-    <div>
-        <span>Welcome to "NewsView"</span>
+    <div class="news">
+      <Header />
+      <div>
+          <span>Welcome to "NewsView"</span>
+      </div>
     </div>
 </template>
 
@@ -16,3 +18,8 @@ export default {
   },
 };
 </script>
+
+<style lang="less" scoped>
+
+
+</style>

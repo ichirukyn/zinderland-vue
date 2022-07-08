@@ -1,27 +1,24 @@
 <template>
-  <header>
-    <div class="header-logo">
-      <!-- <img src="../../assets/logo.jpg"> -->
-      <div class="logo-text">Zinderland</div>
+    <div v-if="this.isVisible" class="logo">
+      <img src="/logo_big.svg">
+      <h2>Welcome to the <b>Zinderland</b></h2>
     </div>
-    <div class="header-navList">
+  <header>
+      <div class="text">Zinderland</div>
       <nav>
         <li><router-link to="/">Главная</router-link></li>
         <li><router-link to="/news">Новости</router-link></li>
         <li><router-link to="/forum">Форум</router-link></li>
       </nav>
-    </div>
-    <div class="header-start">
-      <button class="btn">
+      <button>
         <router-link to="/room">Играть!</router-link>
       </button>
-    </div>
   </header>
 </template>
 
 <script>
 export default {
-  name: "HeaderBlock",
+  props: ['isVisible'],
   methods:{
     logout: function () {
       this.$store.dispatch('logout')
@@ -33,46 +30,55 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import "./src/assets/less/var";
+@import "./src/assets/less/mixin";
 
 header{
-  height: 60px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background: #171716;
+  background: @block_bg;
+
+  & > button{
+    .btn();
+  }
 }
 
-header > div, header > div > li{
-	background: #171716;
+.logo {
+  .column(center);
+  height: 750px;
+  // background: url("/background.png");
+  background-size: cover;
+  
+  & > h2 {
+    font-size: @header_2;
+    text-align: center;
+  }
+  & > h2 > b{
+    font-size: @header_2;
+    text-align: center;
+    color: @main_color;
+  }
 }
 
-.header-logo img{
-	background: #fff;
-    width: 120px;
-    margin: 5px;
+.text{
+  color: @main_color;
+  font-size: @header_4;
 }
 
-.logo-text{
-  line-height: 22px;
-  color: #DB6F15;
-  font-size: 24px;
-}
+nav {
+    display: flex;
 
-.header-navList > nav{
-	display: flex;
-	flex-direction: row;
-}
-
-.header-navList > nav > li{
-	padding: 5px;
-	margin: 1px;
+  & > li{
+    margin: @mg_base;
+  }
 }
 
 .router-link-active{
-  line-height: 22px;
-  color: #DB6F15;
-	border-bottom: solid 1px #DB6F15;
+  color: @main_color;
+	border-bottom: solid 1px @main_color;
 }
 </style>

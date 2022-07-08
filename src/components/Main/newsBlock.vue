@@ -1,14 +1,14 @@
 <template>
-    <div class="main block row">
-        <div class="image-350 column">
-            <img src="../../assets/images.png" />
+    <div>
+        <div class="image">
+            <img src="../../assets/image_fire.png" />
         </div>
-        <div class="news_lists column">
-            <li class="item block column last"><a>Начали разрабатывать систему магии!</a></li>
-            <li class="item block column"><a>Начали разрабатывать систему магии!</a></li>
-            <li class="item block column"><a>Начали разрабатывать систему магии!</a></li>
-            <li class="item block column"><a>Начали разрабатывать систему магии!</a></li>
-        </div>
+        <ul class="news_lists">
+            <li class="item last"><a>Начали разрабатывать систему магии!</a></li>
+            <li class="item"><a>Начали разрабатывать систему магии!</a></li>
+            <li class="item"><a>Начали разрабатывать систему магии!</a></li>
+            <li class="item"><a>Начали разрабатывать систему магии!</a></li>
+        </ul>
     </div>
 </template>
 
@@ -19,32 +19,40 @@ export default({
 })
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import "./src/assets/less/var";
+@import "./src/assets/less/mixin";
 
-.news_lists{
-    margin-left: 20px;
+.news_lists {
+    .column(center);
     align-items: stretch;
     width: 50%;
+
+    & > li {
+        .column(center);
+        background: @main_bg;
+        margin: @mg_base;
+        height: @hg_big;
+        align-items: self-start;
+    }
+
+    & > li > a {
+        margin: @mg_big;
+    }
+
 }
 
-/* .news_lists > li{
-    background: #242323;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    border-radius: 5px;
-    margin: 5px;
-    padding: 5px 15px;
-    height: 40px;
-} */
+.image {
+    width: 35%;
+    .column(center);
+    & > img {
+        width: 100%;
+        .image(auto,300px);
+    }
+}
 
-.last{
-    background: #171716!important;
-	border-bottom: solid 1px #DB6F15;
+.last {
+    background: @active_bg!important;
 }
-.last > a{
-    line-height: 22px;
-    color: #DB6F15;
-}
+
 </style>

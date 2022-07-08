@@ -6,9 +6,11 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
-      <swiper-slide><img src="../../assets/images.jpg" /></swiper-slide>
-      <swiper-slide><img src="../../assets/images.png" /></swiper-slide>
-      <swiper-slide><img src="../../assets/img.jpg" /></swiper-slide>
+      <swiper-slide><img src="/1.jpg" /></swiper-slide>
+      <swiper-slide><img src="/2.jpg" /></swiper-slide>
+      <swiper-slide><img src="/3.jpg" /></swiper-slide>
+      <swiper-slide><img src="/4.jpg" /></swiper-slide>
+      <swiper-slide><img src="/5.jpg" /></swiper-slide>
     </swiper>
   </div>
 </template>

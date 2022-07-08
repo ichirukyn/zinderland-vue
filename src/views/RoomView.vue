@@ -1,43 +1,53 @@
 <template>
-  <Header />
+  <div class="game-menu">
+    <Header :isVisible="false" />
 
-  <div class="room">
-    <div class="user block column">
-      <div class="user-info">
-        <div class="image-50">
-          <img src="../assets/images.png" />
+    <div class="room">
+      <div class="user">
+        <div class="user-info">
+          <img src="/1.jpg" />
+            <span>Ichiru<br>Администратор</span>
         </div>
-        <div class="user-log">
-          <span>Ichiru<br>Администратор</span>
+        <div class="user-nav">
+          <li
+            :class="{ active: isActive('room') }"
+            @click.prevent="setActive('room')"
+          >
+            <p>Комнаты</p>
+          </li>
+          <li
+            :class="{ active: isActive('friend') }"
+            @click.prevent="setActive('friend')"
+          >
+            <p>Друзья</p>
+          </li>
+          <li
+            :class="{ active: isActive('profile') }"
+            @click.prevent="setActive('profile')"
+          >
+            <p>Персонаж</p>
+          </li>
+          <li
+            :class="{ active: isActive('contact') }"
+            @click.prevent="setActive('contact')"
+          >
+            <p>Уведомления</p>
+          </li>
         </div>
       </div>
-      <div class="user-nav">
-        <li class="nav item block" :class="{ active: isActive('room') }"  @click.prevent="setActive('room')">
-          <p>Комнаты</p> 
-        </li>
-        <li class="nav item block" :class="{ active: isActive('friend') }" @click.prevent="setActive('friend')">
-          <p>Друзья</p>
-        </li>
-        <li class="nav item block" :class="{ active: isActive('profile') }" @click.prevent="setActive('profile')">
-          <p>Персонаж</p>
-        </li>
-        <li class="nav item block" :class="{ active: isActive('contact') }" @click.prevent="setActive('contact')">
-          <p>Уведомления</p>
-        </li>
-      </div>
-    </div>
-    <div class="content-tab block column">
-      <div class="tab-panel" :class="{ 'show': isActive('room') }">
-        <roomBlock />
-      </div>
-      <div class="tab-panel" :class="{ 'active show': isActive('friend') }">
-        Home content
-      </div>
-      <div class="tab-panel" :class="{ 'active show': isActive('profile') }">
-        <characterForm />
-      </div>
-      <div class="tab-panel" :class="{ 'active show': isActive('contact') }">
-        Contact content
+      <div class="content-tab block column">
+        <div class="tab-panel" :class="{ show: isActive('room') }">
+          <roomBlock />
+        </div>
+        <div class="tab-panel" :class="{ 'active show': isActive('friend') }">
+          Home content
+        </div>
+        <div class="tab-panel" :class="{ 'active show': isActive('profile') }">
+          <characterForm />
+        </div>
+        <div class="tab-panel" :class="{ 'active show': isActive('contact') }">
+          Contact content
+        </div>
       </div>
     </div>
   </div>
@@ -58,7 +68,7 @@ export default {
   components: {
     Header,
     roomBlock,
-    characterForm
+    characterForm,
   },
   methods: {
     isActive(menuItem) {
@@ -72,22 +82,33 @@ export default {
 
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+@import "./src/assets/less/var";
+@import "./src/assets/less/mixin";
+
+.logo {
+  display: none;
+}
+
+.game-menu {
+  .column(stretch);
+}
 
 .room {
-  display: flex;
-  flex-direction: row;
-  /* align-items: center; */
-  justify-content: space-evenly;
+  .row();
 }
 
 .user {
+  .block();
+  .column(center);
   width: 20%;
   height: 200px;
   margin-top: 20px;
 }
 
 .content-tab {
+  .block();
+  .column(center);
   width: 50%;
   min-height: 400px;
   max-height: 650px;
@@ -96,5 +117,9 @@ export default {
 
 .user-nav {
   width: 90%;
+}
+
+img {
+  .image(50px, 50px);
 }
 </style>

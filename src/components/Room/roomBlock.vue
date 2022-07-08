@@ -4,7 +4,7 @@
     <button class="btn">Создать комнату</button>
   </div>
   <div class="room-list">
-    <div class="room-item" v-for="item in roomData.room" v-bind:key="item.roomID">
+    <div class="room-item" v-for="item in roomData.room" v-bind:key="item.room_id">
       <div class="room-name">
         <p>{{item.room_name}}</p>
       </div>
@@ -13,7 +13,7 @@
         <p>Количество игроков: {{item.room_characters}} / {{item.room_max_characters}}</p>
       </div>
       <div class="room-lvl">
-        <p class="btn-join" @click="goToGame(item.roomID,item.room_token)">Войти</p>
+        <p class="btn-join" @click="goToGame(item.room_id,item.room_token)">Войти</p>
         <p>Уровень: {{item.room_lvl}}</p>
       </div>
     </div>
@@ -50,12 +50,12 @@ export default {
   methods: {
       goToGame(id, token){
           let data = this.$store.getters.userAuth;
-          data.roomID = id;
+          data.room_id = id;
           data.room_token = token;
           this.$store.dispatch('roomJoin', this.$store.getters.userAuth);
 
           if(this.$store.getters.isAceptJoin){
-            this.$router.push('/game?roomID=' + id + '&room_token=' + token)
+            this.$router.push('/game?room_id=' + id + '&room_token=' + token)
           }
       },
       redirectGame(){

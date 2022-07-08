@@ -1,0 +1,66 @@
+.image(@width, @height) {
+    height: @height;
+    max-width: @width;
+    object-fit: cover;
+}
+
+.outline(@bg) {
+    background: @bg!important;
+    border-bottom: solid 1px @main_color;
+}
+
+// Block
+
+.column(@align) {
+    align-items: @align;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.block {
+    background: @block_bg;
+    border-radius: 5px;
+}
+
+.main {
+    height: 400px;
+    margin: @mg_base;
+    width: 80%;
+}
+
+.row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid(@column, @row, @gap) {
+    display: grid;
+    gap: @gap;
+    grid-template-columns: @column;
+    grid-template-rows: @row;
+}
+
+// Input
+
+.input {
+    background: @main_bg;
+    border-radius: @radius_base;
+    flex-grow: 1;
+    padding: @pd_vbig;
+}
+
+.btn {
+    background: @main_color;
+    border-radius: @radius_base;
+    margin: @mg_small;
+    padding: 15px 20px;
+    width: 180px;
+}
